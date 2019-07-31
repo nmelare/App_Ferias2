@@ -47,6 +47,12 @@ class QueroLerTableViewController: UITableViewController {
 //            return label1
 //    }
 
+//    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//        if section == 0 {
+//            return 30
+//        }
+//        return 0
+//    }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return books.count
