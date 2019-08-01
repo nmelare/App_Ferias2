@@ -24,6 +24,7 @@ class QueroLerTableViewController: UITableViewController {
         context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         navigationItem.title = "Quero Ler"
         
+        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -47,6 +48,15 @@ class QueroLerTableViewController: UITableViewController {
 //            return label1
 //    }
 
+//    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//        if section == 0 {
+//            return 30
+//        }
+//        return 0
+//    }
+    
+    
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return books.count
@@ -56,6 +66,7 @@ class QueroLerTableViewController: UITableViewController {
        if let cell = tableView.dequeueReusableCell(withIdentifier: "ListaQueroLer") as? ListaQueroLerTableViewCell {
         cell.imagemLivroQueroLer.image = UIImage(named: books[indexPath.row]?.image ?? "Erro")
         cell.tituloLivroQueroLer.text = books[indexPath.row]?.title
+        print(books[indexPath.row]?.title)
         cell.autorLivroQueroLer.text = books[indexPath.row]?.authors
         
         return cell
@@ -82,6 +93,19 @@ class QueroLerTableViewController: UITableViewController {
             return
         }
         tableView.reloadData()
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        var bookSelected = books[indexPath.row]
+        
+        if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LivroInfo") as? LivroInfoTableViewController {
+            viewController.book = bookSelected
+            
+            if let navigator = navigationController {
+                navigator.pushViewController(viewController, animated: true)
+            }
+        }
+        
     }
 
     /*

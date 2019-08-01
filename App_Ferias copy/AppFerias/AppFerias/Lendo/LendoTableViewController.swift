@@ -20,6 +20,7 @@ class LendoTableViewController: UITableViewController {
         super.viewDidLoad()
 
         context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        navigationItem.title = "Estou Lendo"
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 

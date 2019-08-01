@@ -56,16 +56,20 @@ class PesquisaTableViewController: UITableViewController {
             if isFiltering(){
                 cell.imagemResultadoPesquisa.image = UIImage(named: filterBook[indexPath.row].image ?? "Erro")
                 cell.tituloResultadoPesquisa.text = filterBook[indexPath.row].title
+//                cell.tituloResultadoPesquisa.font = UIFont(name: "San Francisco", size: 30)
                 cell.autorResultadoPesquisa.text = filterBook[indexPath.row].authors?[0]
+//                cell.autorResultadoPesquisa.font = UIFont(name: "San Francisco", size: 18)
             }
             let oneBook = books[indexPath.row]
             cell.imagemResultadoPesquisa.image = UIImage(named: oneBook.image ?? "Erro")
             cell.tituloResultadoPesquisa.text = oneBook.title
+//            cell.tituloResultadoPesquisa.font = UIFont(name: "San Francisco", size: 30)
             cell.autorResultadoPesquisa.text = oneBook.authors?[0]
+//            cell.autorResultadoPesquisa.font = UIFont(name: "San Francisco", size: 18)
             
             return cell
                 }
-        
+  
         return UITableViewCell()
     }
     
